@@ -105,3 +105,44 @@ heights["Sita Mouw"] = 20
 heights["Neko Mouw"] = 30
 print(heights)
 
+// Sets: unordered
+var actors = Set(["Zendaya", "Tom Cruise", "Nicolas Cage"])
+// We don't append, but instead insert
+actors.insert("Tom Holland")
+print(actors)
+// Advantages: no duplicates allowed, much faster than arrays because of how is ordered internally
+
+// Enums: certain values to choose from
+enum Weekday {
+    case Monday
+    case Tuesday
+    case Wednesday
+    case Thursday
+    case Friday
+}  // or: enum Weekday {case Monday, Tuesday, Wednesday, Thursday, Friday}
+
+var day = Weekday.Monday
+day = .Friday  // we don't need to say Weekday again!
+print(day)
+
+// DAY 4
+// Sometimes Swift infers the type of the variable
+var surname2 = "Ruiz"
+// But we can make it explicit
+var surname3: String = "Ruiz"
+// That allow us to overwrite a type:
+let score2: Double = 20
+print(score2)  // will print 20.0, not 20
+// different ways of use type annotations
+var teams: [String] = [String]()
+var cities: [String] = []
+var clues = [String]()
+// Types on enums
+enum UIStyle {case light, dark, system}
+var style = UIStyle.light
+
+// This works because we are only saying the type, we haven't assign a value yet
+let username: String
+username = "@laureanorp"
+// No matter if you use inference or annotations, Swift must know the type of your data at AL TIMES
+
