@@ -146,3 +146,62 @@ let username: String
 username = "@laureanorp"
 // No matter if you use inference or annotations, Swift must know the type of your data at AL TIMES
 
+// DAY 5
+let speed = 90
+if speed > 80 {
+    print("You are going too fast!")
+}
+// Compare with: >, <, >=, <=, ==, !=,
+// Comparing (string == "") is faster than using (string.count == 0) in Swift. But for that we use string.isEmpty
+if username.isEmpty {  // no need to use == True, as it returns a bool directly
+    print("No username!")
+} else if username.count == 10 {
+    print("Username is 10 chars long.")
+} else {
+    print("Other message...")
+}
+// Multiple conditions:
+let temp = 25
+if temp > 20 && temp < 30 {  // Use || for or
+    print("It's a nice day!")
+}
+
+enum TransportOption {
+    case airplane, helicopter, bus, bike, car
+}
+let transport = TransportOption.airplane  // remember, from now on we can write the enum case directly
+if transport == .airplane || transport == .helicopter {  // like here
+    print("Let's fly!")
+} else {
+    print("No flying this time...")
+}
+// Faster and more efficient than using if else if else if...: switch and cases!
+switch transport {
+case .airplane:
+    print("Time to fly!")
+case .bike:
+    print("Time to do some exercise!")
+case .helicopter:
+    print("Time to fly!")
+case .car:
+    print("Time to spend on gas")
+case .bus:
+    print("Don't forget your mask")
+}
+// Swift requieres us to cover ALL cases of values of our enum. It stops when case matches.
+
+let place = "Metropolis"
+switch place {
+case "Gotham":
+    print("You are Batman")
+case "Wakanda":
+    print("You are black panther")
+default:  // THIS HAS TO BE IN THE END of the cases. It allow us to exhaust the cases.
+    print("Who are you?")
+}
+// fallthrough allow us to fall to the next case. This is not common.
+
+// Ternary conditional operators. WTF. "What? ? True : False"
+let age = 18
+let canVote = age >= 28 ? "Yes" : "No"
+print(canVote)
