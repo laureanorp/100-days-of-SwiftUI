@@ -205,3 +205,34 @@ default:  // THIS HAS TO BE IN THE END of the cases. It allow us to exhaust the 
 let age = 18
 let canVote = age >= 28 ? "Yes" : "No"
 print(canVote)
+
+// DAY 6
+// for loops are pretty natural
+let platforms = ["iOS", "macOS", "watchOS"]
+for os in platforms {
+    // this is the loop body
+    print("Swift works great on \(os)")
+}
+for i in 1...4 {  // range of numbers
+//Careful: The end number is included in the range. Use 1..<5 to count until 5
+    print(i)
+}
+// While loops are less common and useful
+var countdown = 5
+while countdown > 0 {
+    print(countdown)
+    countdown -= 1
+}
+// Small interruption: random int or doubles
+let id = Int.random(in: 1...100)
+print(id)
+let amount = Double.random(in: 0...1)
+print(amount)
+// Skip loop items with break and continue
+let filenames = ["neko.pdf", "sita.mouw", "kira.jpg"]
+for filename in filenames {
+    if filename.hasSuffix("mouw") {
+        print("Emergency! .mouw file found!")
+        break
+    }
+}
