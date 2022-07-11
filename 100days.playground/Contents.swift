@@ -236,3 +236,62 @@ for filename in filenames {
         break
     }
 }
+
+// DAY 7
+// Functions!
+func helloWorld() {
+    print("Hello, World!")
+}
+helloWorld()
+
+func isNumberEven(number: Int) {
+    if number.isMultiple(of: 2) {
+        print("Is even!")
+    }
+    else {
+        print("Is not even")
+    }
+}
+isNumberEven(number: 25)  // We have to name all the arguments, isNumberEven(25) is not enough!
+// Printing is cool, but we need to return things, not printing
+
+func rollDice(sides: Int) -> Int {  // Super important to add what we return, an Int
+    return Int.random(in: 1...sides)
+}
+print(rollDice(sides: 20))
+
+func isAnagram(string1: String, string2: String) -> Bool {
+    return string1.sorted() == string2.sorted()  // return can be removed when only one line
+}
+print(isAnagram(string1: "hello", string2: "goodbye"))
+print(isAnagram(string1: "vile", string2: "evil"))
+
+// Returning multiple values
+func getUser() -> (firstName: String, lastName: String) {  // much safer than using a dict
+    return (firstName: "Taylor", lastName: "Swift")
+    // or even ("Taylor", "Swift")
+}
+let user = getUser()
+print("Name: \(user.firstName)")
+
+func getUser2() -> (String, String) {  // only types
+    return ("Taylor", "Swift")
+}
+let user2 = getUser2()
+print("Name: \(user2.0)") // accessed with an index, sabe because you know the value will be there
+let name2 = user2.0  // of course, you can extract it individually
+// Or even more efficiently!
+let (firstName2, lastName2) = getUser2()
+
+// We can remove the argument label from the call by using "_"
+func isAnagram2(_ string1: String, _ string2: String) -> Bool {
+    return string1.sorted() == string2.sorted()  // return can be removed when only one line
+}
+print(isAnagram2("evil", "vile"))
+
+// Or even change it to external parameter names
+func isAnagram3(word1 string1: String, word2 string2: String) -> Bool {
+    return string1.sorted() == string2.sorted()  // return can be removed when only one line
+}
+print(isAnagram3(word1: "evil", word2: "vile"))
+
