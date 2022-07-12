@@ -295,3 +295,42 @@ func isAnagram3(word1 string1: String, word2 string2: String) -> Bool {
 }
 print(isAnagram3(word1: "evil", word2: "vile"))
 
+// DAY 8
+// Default values for functions allow us to not calling them everytime
+func sayHelloWorld(name: String = "World") -> String {  // = default value
+    "Hello \(name)"
+}
+print(sayHelloWorld())
+
+// Error handling on functions
+// First define the errors
+enum PasswordError: Error {
+    case short, obvious
+}
+func checkPassword (_ password: String) throws -> String {  // throws ins the indication that it can return errors
+    if password.count < 5 {
+        throw PasswordError.short
+    }
+    if password == "12345" {
+        throw PasswordError.obvious
+    }
+    
+    if password.count < 8 {
+        return "OK"
+    } else if password.count < 10 {
+        return "Good"
+    } else {
+        return "Excellent"
+    }
+}
+let myPass = "1234"
+do {  // the code you want to try
+    let result = try checkPassword(myPass)  // try is the signal that regular code execution might stop
+    print("Password rating: \(result)")
+} catch PasswordError.short {  // catch certain error
+    print("Password is too short")
+} catch {  // other errors
+    print("There was an error")
+}
+
+
